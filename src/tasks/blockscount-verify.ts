@@ -84,7 +84,9 @@ function validateArgs(args: TaskArguments): boolean {
 }
 
 function validateBlockscoutURL(hreConfig: HardhatConfig) {
-  if (hreConfig.blockscoutVerify.blockscoutURL === null) { return false; }
+  if (hreConfig.blockscoutVerify.blockscoutURL === null) {
+    return false;
+  }
   let url;
   try {
     url = new URL(hreConfig.blockscoutVerify.blockscoutURL);
