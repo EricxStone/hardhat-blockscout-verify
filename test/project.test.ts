@@ -5,7 +5,5 @@ import path from "path";
 import { useEnvironment } from "./helpers";
 
 describe("Integration tests", function () {
-  it("able to run task from hre", async function () {
-    
-  })
+  it("able to run task from hre", async function () {});
 });
