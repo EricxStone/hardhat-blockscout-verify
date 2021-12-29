@@ -1,58 +1,63 @@
-# Hardhat TypeScript plugin boilerplate
+# hardhat-blockscout-verify
 
-This is a sample Hardhat plugin written in TypeScript. Creating a Hardhat plugin
-can be as easy as extracting a part of your config into a different file and
-publishing it to npm.
+Hardhat Plugin for Solidity Contract Verification on Blockscout Block Explorer
 
-This sample project contains an example on how to do that, but also comes with
-many more features:
+[Hardhat](https://hardhat.org) plugin example. 
 
-- A mocha test suite ready to use
-- TravisCI already setup
-- A package.json with scripts and publishing info
-- Examples on how to do different things
+## What
+
+This plugin will help you to verify your solidity contract on Blockscout Block Explorer. Blockscout Block Explorer is a block explorer implmented for EVM-supported blockchain. Unlike Ethscan, Blockscout is an open-sourced project. There are many EVM-supported blockchain and sidechains has adopted Blockscout as their Block Explorer, including Moonriver (Moonbeam on Kusama), POA Network, xDai Chain, Ethereum Classic. Blockscout Block Explorer offers an API where you can verify your solidity contracts, but you will have to flatten the contract beforehand. This plugin helps you to do it in one shot.
 
 ## Installation
 
-To start working on your project, just run
-
 ```bash
-npm install
+npm install @ericxstone/hardhat-blockscout-verify
 ```
 
-## Plugin development
+Import the plugin in your `hardhat.config.js`:
 
-Make sure to read our [Plugin Development Guide](https://hardhat.org/advanced/building-plugins.html) to learn how to build a plugin.
+```js
+require("@ericxstone/hardhat-blockscout-verify");
+```
 
-## Testing
+Or if you are using TypeScript, in your `hardhat.config.ts`:
 
-Running `npm run test` will run every test located in the `test/` folder. They
-use [mocha](https://mochajs.org) and [chai](https://www.chaijs.com/),
-but you can customize them.
+```ts
+import "@ericxstone/hardhat-blockscout-verify";
+```
 
-We recommend creating unit tests for your own modules, and integration tests for
-the interaction of the plugin with Hardhat and its dependencies.
+## Tasks
 
-## Linting and autoformat
+This plugin adds the `blockscount-verify` task to Hardhat:
+```bash
+npx hardhat blockscount-verify <contract file> <contract address>
+```
 
-All of Hardhat projects use [prettier](https://prettier.io/) and
-[tslint](https://palantir.github.io/tslint/).
+## Configuration
 
-You can check if your code style is correct by running `npm run lint`, and fix
-it with `npm run lint:fix`.
+This plugin extends the `HardhatUserConfig` object with an optional `blockscoutVerify` field.
 
-## Building the project
+This is an example of how to set it:
 
-Just run `npm run build` ️👷
+```js
+module.exports = {
+  blockscoutVerify: {
+    blockscoutURL: "<BLOCKSCOUT_EXPLORER_URL>",
+    contracts: {
+      "<CONTRACT_NAME>": {
+        compilerVersion: SOLIDITY_VERSION.<CONTRACT_COMPILER_VERSION>, // checkout enum SOLIDITY_VERSION
+        optimization: true,
+        evmVersion: EVM_VERSION.<EVM_VERSION>, // checkout enum SOLIDITY_VERSION
+        optimizationRuns: 999999,
+      },
+    },
+  },
+};
+```
 
-## README file
+## Usage
 
-This README describes this boilerplate project, but won't be very useful to your
-plugin users.
+There are no additional steps you need to take for this plugin to work.
 
-Take a look at `README-TEMPLATE.md` for an example of what a Hardhat plugin's
-README should look like.
-
-## Migrating from Buidler?
-
-Take a look at [the migration guide](MIGRATION.md)!
+Install it and access ethers through the Hardhat Runtime Environment anywhere
+you need it (tasks, scripts, tests, etc).

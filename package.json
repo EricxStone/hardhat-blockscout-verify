@@ -1,9 +1,9 @@
 {
-  "name": "hardhat-ts-plugin-boilerplate",
+  "name": "@ericxstone/hardhat-blockscout-verify",
   "version": "0.0.1",
-  "description": "Hardhat TypeScript plugin boilerplate",
-  "repository": "github:nomiclabs/hardhat-ts-plugin-boilerplate",
-  "author": "Nomic Labs LLC",
+  "description": "Hardhat Plugin for Solidity Contract Verification on Blockscout Block Explorer",
+  "repository": "github:ericxstone/hardhat-blockscout-verify",
+  "author": "ericxstone",
   "license": "MIT",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -16,7 +16,7 @@
   "scripts": {
     "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
     "lint": "tslint --config tslint.json --project tsconfig.json",
-    "test": "mocha --exit --recursive 'test/**/*.test.ts'",
+    "test": "mocha --exit --recursive 'test/**/*.test.ts' --timeout 100000",
     "build": "tsc",
     "watch": "tsc -w",
     "prepublishOnly": "npm run build"
@@ -28,12 +28,16 @@
     "README.md"
   ],
   "devDependencies": {
+    "@openzeppelin/contracts": "^3.1.0",
+    "@openzeppelin/contracts-upgradeable": "^3.3.0",
+    "@openzeppelin/hardhat-upgrades": "^1.12.0",
     "@types/chai": "^4.1.7",
     "@types/fs-extra": "^5.0.4",
     "@types/mocha": "^5.2.6",
     "@types/node": "^8.10.38",
+    "@types/node-fetch": "^2.5.12",
     "chai": "^4.2.0",
-    "hardhat": "^2.0.0",
+    "hardhat": "2.0.0",
     "mocha": "^7.1.2",
     "prettier": "2.0.5",
     "ts-node": "^8.1.0",
@@ -44,5 +48,8 @@
   },
   "peerDependencies": {
     "hardhat": "^2.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "2.0.0"
   }
 }
