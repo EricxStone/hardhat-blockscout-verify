@@ -1,8 +1,6 @@
 # hardhat-blockscout-verify
 
-Hardhat Plugin for Solidity Contract Verification on Blockscout Block Explorer
-
-[Hardhat](https://hardhat.org) plugin example. 
+[Hardhat](https://hardhat.org) Plugin for Solidity Contract Verification on Blockscout Block Explorer
 
 ## What
 
