@@ -22,6 +22,7 @@ Or if you are using TypeScript, in your `hardhat.config.ts`:
 
 ```ts
 import "@ericxstone/hardhat-blockscout-verify";
+import {SOLIDITY_VERSION, EVM_VERSION} from "@ericxstone/hardhat-blockscout-verify";
 ```
 
 ## Tasks
