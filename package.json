@@ -1,6 +1,6 @@
 {
   "name": "@ericxstone/hardhat-blockscout-verify",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Hardhat plugin for solidity contract verification on Blockscout block explorer",
   "repository": "github:ericxstone/hardhat-blockscout-verify",
   "author": "ericxstone",
