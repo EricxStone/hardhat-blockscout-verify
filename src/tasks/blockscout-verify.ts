@@ -115,4 +115,4 @@ function validateContractName(hreConfig: HardhatConfig, contractName: string) {
   );
 }
 
-const P = ['\\', '|', '/', '-'];
+const P = ["\\", "|", "/", "-"];
