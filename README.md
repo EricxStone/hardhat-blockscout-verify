@@ -75,3 +75,7 @@ await hre.run("blockscout-verify", {
     address: "<contract address>"
 })
 ```
+
+## Known Issue
+
+- Upgradeable contracts is current not supported.
