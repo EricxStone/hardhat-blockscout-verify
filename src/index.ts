@@ -5,7 +5,7 @@ import path from "path";
 
 // This import is needed to let the TypeScript compiler know that it should include your type
 // extensions in your npm package's types file.
-import "./tasks/blockscount-verify";
+import "./tasks/blockscout-verify";
 import "./tasks/smart-flatten";
 import "./type-extensions";
 

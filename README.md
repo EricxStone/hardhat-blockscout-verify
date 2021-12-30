@@ -27,9 +27,9 @@ import {SOLIDITY_VERSION, EVM_VERSION} from "@ericxstone/hardhat-blockscout-veri
 
 ## Tasks
 
-This plugin adds the `blockscount-verify` task to Hardhat:
+This plugin adds the `blockscout-verify` task to Hardhat:
 ```bash
-npx hardhat blockscount-verify <contract file> <contract address>
+npx hardhat blockscout-verify <contract file> <contract address>
 ```
 
 ## Configuration
@@ -63,5 +63,5 @@ you need it (tasks, scripts, tests, etc).
 
 You can also use the plugin as CLI
 ```bash
-npx hardhat blockscount-verify <contract file> <contract address>
+npx hardhat blockscout-verify <contract file> <contract address>
 ```
