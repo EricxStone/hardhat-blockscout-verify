@@ -14,3 +14,5 @@ extendConfig(
     config.blockscoutVerify = userConfig.blockscoutVerify!;
   }
 );
+
+export * from "./types";
