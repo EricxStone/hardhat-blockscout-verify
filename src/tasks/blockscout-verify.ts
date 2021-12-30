@@ -9,8 +9,8 @@ import fetch from "node-fetch";
 import path from "path";
 
 task("blockscout-verify")
-  .addPositionalParam("filePath", "File path to the contract", types.string)
-  .addPositionalParam("address", "Deployed contract address", types.string)
+  .addPositionalParam("filePath", "File path to the contract", "", types.string)
+  .addPositionalParam("address", "Deployed contract address", "", types.string)
   .setAction(async function (
     args: TaskArguments,
     hre: HardhatRuntimeEnvironment
@@ -21,7 +21,7 @@ task("blockscout-verify")
         "Missing args for this task"
       );
     }
-    const fileName = args.fileName;
+    const fileName = args.filePath;
     const address = args.address;
     const contractName = path.basename(fileName, ".sol");
     if (!validateContractName(hre.config, contractName)) {
