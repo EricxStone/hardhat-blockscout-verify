@@ -1,4 +1,4 @@
-import { task } from "hardhat/config";
+import { task, types } from "hardhat/config";
 import { NomicLabsHardhatPluginError } from "hardhat/plugins";
 import {
   HardhatConfig,
@@ -9,8 +9,8 @@ import fetch from "node-fetch";
 import path from "path";
 
 task("blockscout-verify")
-  .addParam("filePath", "File path to the contract")
-  .addParam("address", "Deployed contract address")
+  .addPositionalParam("filePath", "File path to the contract", types.string)
+  .addPositionalParam("address", "Deployed contract address", types.string)
   .setAction(async function (
     args: TaskArguments,
     hre: HardhatRuntimeEnvironment
