@@ -53,9 +53,15 @@ task("blockscout-verify")
       optimizationRuns: verifyConfig!.optimizationRuns,
     };
     const blockscoutURL = hre.config.blockscoutVerify.blockscoutURL;
+    console.log(`Sending file for verification to ${blockscoutURL}`);
+    console.log(`Contract address is ${address}`);
+    console.log("Verification could take some time... ");
+    let x = 0;
+    const loader = setInterval(() => {
+      process.stdout.write(`\r${P[x++]}`);
+      x %= P.length;
+    }, 250);
     try {
-      console.log(`Sending file for verification to ${blockscoutURL}`);
-      console.log(`Contract address is ${address}`);
       const verifyRes = await fetch(
         `${blockscoutURL}/api?module=contract&action=verify`,
         {
@@ -66,6 +72,7 @@ task("blockscout-verify")
           },
         }
       );
+      clearInterval(loader);
       if (verifyRes.status === 200) {
         console.log(`${contractName} is verified`);
       } else {
@@ -75,6 +82,7 @@ task("blockscout-verify")
         );
       }
     } catch (e) {
+      clearInterval(loader);
       throw new NomicLabsHardhatPluginError(
         "hardhat-blockscout-verify",
         "Fail to verify contract"
@@ -106,3 +114,5 @@ function validateContractName(hreConfig: HardhatConfig, contractName: string) {
     hreConfig.blockscoutVerify.contracts[contractName] !== undefined
   );
 }
+
+const P = ['\\', '|', '/', '-'];
