@@ -80,9 +80,9 @@ task("blockscout-verify")
         const contractRes = await fetch(
           `${blockscoutURL}/api?module=contract&action=getsourcecode&address=${address}`
         );
-        const resBody = await contractRes.json()
-        if (resBody.result.length > 0){
-          if (resBody.result[0].ABI !== null){
+        const resBody = await contractRes.json();
+        if (resBody.result.length > 0) {
+          if (resBody.result[0].ABI !== null) {
             console.log(`${contractName} is verified`);
           } else {
             throw new NomicLabsHardhatPluginError(
