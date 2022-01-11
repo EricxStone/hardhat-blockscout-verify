@@ -75,7 +75,7 @@ task("blockscout-verify")
       clearInterval(loader);
       if (verifyRes.status === 200) {
         console.log(`${contractName} is verified`);
-      } else if (verifyRes.status == 524) {
+      } else if (verifyRes.status === 524) {
         // special handling for cloudflare timeout
         const contractRes = await fetch(
           `${blockscoutURL}/api?module=contract&action=getsourcecode&address=${address}`
