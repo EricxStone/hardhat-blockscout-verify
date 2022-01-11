@@ -75,6 +75,27 @@ task("blockscout-verify")
       clearInterval(loader);
       if (verifyRes.status === 200) {
         console.log(`${contractName} is verified`);
+      } else if (verifyRes.status == 524) {
+        // special handling for cloudflare timeout
+        const contractRes = await fetch(
+          `${blockscoutURL}/api?module=contract&action=getsourcecode&address=${address}`
+        );
+        const resBody = await contractRes.json()
+        if (resBody.result.length > 0){
+          if (resBody.result[0].ABI !== null){
+            console.log(`${contractName} is verified`);
+          } else {
+            throw new NomicLabsHardhatPluginError(
+              "hardhat-blockscout-verify",
+              "Fail to verify contract"
+            );
+          }
+        } else {
+          throw new NomicLabsHardhatPluginError(
+            "hardhat-blockscout-verify",
+            "Fail to verify contract"
+          );
+        }
       } else {
         throw new NomicLabsHardhatPluginError(
           "hardhat-blockscout-verify",
