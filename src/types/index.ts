@@ -1,4 +1,11 @@
 export enum SOLIDITY_VERSION {
+  SOLIDITY_V_8_18 = "v0.8.18+commit.87f61d96",
+  SOLIDITY_V_8_17 = "v0.8.17+commit.8df45f5f",
+  SOLIDITY_V_8_16 = "v0.8.16+commit.07a7930e",
+  SOLIDITY_V_8_15 = "v0.8.15+commit.e14f2714",
+  SOLIDITY_V_8_14 = "v0.8.14+commit.80d49f37",
+  SOLIDITY_V_8_13 = "v0.8.13+commit.abaa5c0e",
+  SOLIDITY_V_8_12 = "v0.8.12+commit.f00d7308",
   SOLIDITY_V_8_11 = "v0.8.11+commit.d7f03943",
   SOLIDITY_V_8_10 = "v0.8.10+commit.fc410830",
   SOLIDITY_V_8_9 = "v0.8.9+commit.e5eed63a",
