@@ -46,7 +46,7 @@ module.exports = {
       "<CONTRACT_NAME>": {
         compilerVersion: SOLIDITY_VERSION.<CONTRACT_COMPILER_VERSION>, // checkout enum SOLIDITY_VERSION
         optimization: true,
-        evmVersion: EVM_VERSION.<EVM_VERSION>, // checkout enum SOLIDITY_VERSION
+        evmVersion: EVM_VERSION.<EVM_VERSION>, // checkout enum EVM_VERSION
         optimizationRuns: 999999,
       },
     },
